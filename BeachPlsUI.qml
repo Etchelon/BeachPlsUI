@@ -7,10 +7,38 @@ ApplicationWindow {
 	width: 640
 	height: 480
 
+	ListView{
+		id: playerList
+
+		anchors {
+			left: parent.left
+			top: parent.top
+			bottom: parent.bottom
+			margins: 10
+		}
+
+		model: 5
+		delegate: Rectangle {
+			width: parent.width
+			height: 75
+
+			Text {
+				anchors.fill: parent
+
+				text: "Fish"
+				font.pixelSize: height * 0.5
+			}
+		}
+
+		width: 150
+	}
+
 	Flickable {
 		id: skills
 
 		anchors {
+			left: playerList.right
+			leftMargin: 30
 			top: parent.top
 			topMargin: 10
 			bottom: parent.bottom
@@ -18,7 +46,6 @@ ApplicationWindow {
 			right: parent.right
 			rightMargin: 10
 		}
-		width: 300
 
 		contentHeight: column.height
 
